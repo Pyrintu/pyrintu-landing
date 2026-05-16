@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyrintu | Intelligence, Engineered.</title>
+    <meta name="description" content="Pyrintu builds AI/ML products that solve problems that actually matter. Discover Task Anchor, our behavioral intelligence engine for focus recovery.">
+    
+    <!-- Standard SEO -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pyrintu.software">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyrintu.software/">
+    <meta property="og:title" content="Pyrintu | Intelligence, Engineered.">
+    <meta property="og:description" content="Pyrintu builds AI/ML products that solve problems that actually matter. Experience focus recovery with Task Anchor.">
+    <meta property="og:image" content="https://pyrintu.software/assets/pyrintu_logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pyrintu">
+    <meta name="twitter:creator" content="@pyrintu">
+    <meta name="twitter:url" content="https://pyrintu.software/">
+    <meta name="twitter:title" content="Pyrintu | Intelligence, Engineered.">
+    <meta name="twitter:description" content="Pyrintu builds AI/ML products that solve problems that actually matter. Experience focus recovery with Task Anchor.">
+    <meta name="twitter:image" content="https://pyrintu.software/assets/pyrintu_logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="loader-logo">
+        </div>
+    </div>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <main id="main-content">
+        <!-- SECTION 1: HERO -->
+        <section id="hero" class="section reveal-section">
+            <div class="content-wrapper centered">
+                <div class="logo-container">
+                    <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="hero-logo static-logo">
+                </div>
+                <h1 class="hero-title" id="hero-headline">
+                    <span class="word">Intelligence,</span>
+                    <span class="word">Engineered.</span>
+                </h1>
+                <p class="hero-subtitle">Pyrintu builds AI/ML products that solve problems that actually matter.</p>
+                <a href="#about" class="btn btn-primary">Discover &rarr;</a>
+            </div>
+        </section>
+
+        <!-- SECTION 2: STATEMENT -->
+        <section id="statement-1" class="section reveal-section">
+            <div class="content-wrapper centered">
+                <p class="statement-line-1">Most software tracks what you do.</p>
+                <p class="statement-line-2">We build software that <span class="gradient-text-blue">understands.</span></p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ABOUT -->
+        <section id="about" class="section reveal-section">
+            <div class="content-wrapper split">
+                <div class="left-panel">
+                    <h2 class="massive-headline">
+                        <span class="reveal-line">Built on</span><br>
+                        <span class="reveal-line">Machine</span><br>
+                        <span class="reveal-line gradient-text-cyan">Learning.</span>
+                    </h2>
+                </div>
+                <div class="right-panel">
+                    <p class="body-text">
+                        We are Pyrintu. An AI/ML company from Hyderabad, India, founded in 2026. We combine cutting-edge machine learning with clean software engineering to build tools that make a real difference. Building in public — every model, every decision, every failure.
+                    </p>
+                    <div class="badge-container">
+                        <span class="badge">Artificial Intelligence</span>
+                        <span class="badge">Machine Learning</span>
+                        <span class="badge">NLP</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">Product Development</span>
+                        <span class="badge">Software Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TASK ANCHOR REVEAL -->
+        <section id="task-anchor" class="section reveal-section">
+            <div class="content-wrapper centered">
+                <h2 class="product-name">Task Anchor.</h2>
+                <h3 class="product-tagline">Focus Recovery, Powered by AI.</h3>
+                <p class="product-desc">The average person loses focus 10+ times per hour. Each recovery takes 23 minutes. Task Anchor detects drift 30 seconds before it happens — not a timer, a behavioral intelligence engine.</p>
+                <div class="dashboard-container">
+                    <img src="assets/task_anchor_dashboard.png" alt="Task Anchor Dashboard" class="dashboard-mockup">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: STATS -->
+        <section id="stats" class="section reveal-section">
+            <div class="content-wrapper centered">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">focus losses per hour on average</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="23">0</div>
+                        <div class="stat-label">recovery time without AI</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15000">0</div>
+                        <div class="stat-label">annual productivity cost per worker</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: SECOND STATEMENT -->
+        <section id="statement-2" class="section reveal-section">
+            <div class="content-wrapper centered">
+                <p class="statement-line-1 small">Traditional apps ask: did you start a timer?</p>
+                <p class="statement-line-2 large">Task Anchor says: <span class="underline-reveal">I noticed you switched apps.</span></p>
+            </div>
+        </section>
+
+        <!-- SECTION 7: CTA -->
+        <section id="cta" class="section reveal-section">
+            <div class="radial-glow"></div>
+            <div class="content-wrapper centered">
+                <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="cta-logo static-logo">
+                <h2 class="cta-title">Start building with intelligence.</h2>
+                <div class="cta-form-container">
+                    <form id="waitlist-form" class="waitlist-form">
+                        <input type="email" id="email" placeholder="Enter your email" required class="form-input">
+                        <button type="submit" class="btn btn-primary">Join the Waitlist &rarr;</button>
+                    </form>
+                    <div id="form-message" class="form-message"></div>
+                </div>
+                <div class="cta-footer-info">
+                    <span>pyrintu.software</span> &bull; <span>Built in Hyderabad 🇮🇳</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-gradient-line"></div>
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="footer-logo">
+            </div>
+            <nav class="footer-nav">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#task-anchor">Product</a>
+                <a href="#cta">Contact</a>
+            </nav>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/pyrintu/" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+                    <a href="https://github.com/Pyrintu" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+                    <a href="https://x.com/pyrintu" target="_blank" rel="noopener" aria-label="Twitter">X</a>
+                    <a href="https://www.instagram.com/pyrintuai" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pyrintu &middot; Intelligent Solutions. Real Impact.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
