@@ -24,14 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateCursor() {
-        // Smooth lerping for cursor
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
+        // Snappier lerping (increased from 0.2/0.1 to 0.4/0.25)
+        cursorX += (mouseX - cursorX) * 0.4;
+        cursorY += (mouseY - cursorY) * 0.4;
         cursor.style.transform = `translate(${cursorX - 5}px, ${cursorY - 5}px)`;
 
-        // Even smoother lerping for follower
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
+        followerX += (mouseX - followerX) * 0.25;
+        followerY += (mouseY - followerY) * 0.25;
         follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
 
         requestAnimationFrame(updateCursor);
