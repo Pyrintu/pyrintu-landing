@@ -11,6 +11,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     });
 
+    // 1.1 Custom Cursor Logic
+    const cursor = document.querySelector('.custom-cursor');
+    const follower = document.querySelector('.custom-cursor-follower');
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+        // Smooth lerping for cursor
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        cursor.style.transform = `translate(${cursorX - 5}px, ${cursorY - 5}px)`;
+
+        // Even smoother lerping for follower
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+        follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+
+        requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    // Hover effects for cursor
+    document.querySelectorAll('a, button, .badge').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            follower.style.transform += ' scale(1.5)';
+            follower.style.background = 'rgba(6, 182, 212, 0.2)';
+            cursor.style.transform += ' scale(0.5)';
+        });
+        el.addEventListener('mouseleave', () => {
+            follower.style.transform = follower.style.transform.replace(' scale(1.5)', '');
+            follower.style.background = 'rgba(6, 182, 212, 0.05)';
+            cursor.style.transform = cursor.style.transform.replace(' scale(0.5)', '');
+        });
+    });
+
     // 2. Particle Canvas Animation
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
@@ -37,6 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
             this.opacity = Math.random() * 0.5 + 0.1;
         }
         update() {
+            // Mouse repulsion
+            const dx = mouseX - this.x;
+            const dy = mouseY - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const force = 100;
+            
+            if (distance < 100) {
+                const angle = Math.atan2(dy, dx);
+                this.x -= Math.cos(angle) * (force / distance);
+                this.y -= Math.sin(angle) * (force / distance);
+            }
+
             this.x += this.speedX;
             this.y += this.speedY;
             if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
@@ -44,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         draw() {
-            ctx.fillStyle = `rgba(14, 165, 233, ${this.opacity})`;
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
@@ -130,8 +183,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Cinematic Smooth Scroll Logic (Weighted feel)
-    // For a "weighty" feel, we'll just ensure the animations are slow.
+    // 5. Cinematic Background Parallax
+    const blobs = document.querySelectorAll('.blob');
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        blobs.forEach((blob, index) => {
+            const speed = (index + 1) * 0.1;
+            blob.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
+        blobs.forEach((blob, index) => {
+            const factor = (index + 1) * 20;
+            blob.style.left = `${(index === 0 ? -100 : -100) + (x * factor)}px`;
+            blob.style.top = `${(index === 0 ? -100 : -100) + (y * factor)}px`;
+        });
+    });
 
     // 6. Supabase Initialization
     const supabaseUrl = 'https://gtzzqljpvbzociinqegh.supabase.co';

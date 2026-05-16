@@ -33,12 +33,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+    
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
     <div id="loader" class="loader">
         <div class="loader-content">
             <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="loader-logo">
         </div>
     </div>
 
+    <div class="noise-overlay"></div>
     <canvas id="particle-canvas"></canvas>
 
     <main id="main-content">
@@ -46,7 +54,7 @@
         <section id="hero" class="section reveal-section">
             <div class="content-wrapper centered">
                 <div class="logo-container">
-                    <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="hero-logo static-logo">
+                    <img src="assets/pyrintu_logo_wide.jpg" alt="Pyrintu Logo" class="hero-logo wide-logo">
                 </div>
                 <h1 class="hero-title" id="hero-headline">
                     <span class="word">Intelligence,</span>
@@ -137,7 +145,7 @@
         <section id="cta" class="section reveal-section">
             <div class="radial-glow"></div>
             <div class="content-wrapper centered">
-                <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="cta-logo static-logo">
+                <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="cta-logo square-logo">
                 <h2 class="cta-title">Start building with intelligence.</h2>
                 <div class="cta-form-container">
                     <form id="waitlist-form" class="waitlist-form">
@@ -158,7 +166,7 @@
         <div class="footer-gradient-line"></div>
         <div class="footer-content">
             <div class="footer-left">
-                <img src="assets/pyrintu_logo.png" alt="Pyrintu Logo" class="footer-logo">
+                <img src="assets/pyrintu_logo_wide.jpg" alt="Pyrintu Logo" class="footer-logo wide-footer">
             </div>
             <nav class="footer-nav">
                 <a href="#hero">Home</a>
