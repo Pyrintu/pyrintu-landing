@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /.git
+Disallow: /.env
+Disallow: /node_modules
+
+Crawl-delay: 1
+
+Sitemap: https://pyrintu.software/sitemap.xml
