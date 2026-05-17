@@ -203,8 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 6. Supabase Initialization
-    const supabaseUrl = 'https://gtzzqljpvbzociinqegh.supabase.co';
-    const supabaseKey = 'sb_publishable_CoNCjuHnkSrBRVIn2Ip58g_69_4_q-G';
+    const supabaseUrl = process.env.VITE_SUPABASE_URL
+    const supabaseKey = process.env.VITE_SUPABASE_KEY
     const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
 
     // 7. Waitlist Form Handler
