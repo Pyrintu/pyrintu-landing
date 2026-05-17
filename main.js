@@ -10,33 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.hero-logo').style.opacity = '1';
         }, 1000);
     });
- 
+
     // 1.1 Custom Cursor Logic
     const cursor = document.querySelector('.custom-cursor');
     const follower = document.querySelector('.custom-cursor-follower');
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
     let followerX = 0, followerY = 0;
- 
+
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
- 
+
     function updateCursor() {
         // Snappier lerping (increased from 0.2/0.1 to 0.4/0.25)
         cursorX += (mouseX - cursorX) * 0.4;
         cursorY += (mouseY - cursorY) * 0.4;
         cursor.style.transform = `translate(${cursorX - 5}px, ${cursorY - 5}px)`;
- 
+
         followerX += (mouseX - followerX) * 0.25;
         followerY += (mouseY - followerY) * 0.25;
         follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
- 
+
         requestAnimationFrame(updateCursor);
     }
     updateCursor();
- 
+
     // Hover effects for cursor
     document.querySelectorAll('a, button, .badge').forEach(el => {
         el.addEventListener('mouseenter', () => {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.transform = cursor.style.transform.replace(' scale(0.5)', '');
         });
     });
- 
+
     // 2. Particle Canvas Animation
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.x -= Math.cos(angle) * (force / distance);
                 this.y -= Math.sin(angle) * (force / distance);
             }
- 
+
             this.x += this.speedX;
             this.y += this.speedY;
             if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
@@ -116,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animateParticles);
     }
     animateParticles();
- 
+
     // 3. Scroll Reveal Logic
     const observerOptions = {
         threshold: 0.3
     };
- 
+
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -146,11 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
- 
+
     document.querySelectorAll('.reveal-section').forEach(section => {
         revealObserver.observe(section);
     });
- 
+
     // 4. Stats Counting Animation
     function startCounting() {
         const stats = document.querySelectorAll('.stat-number');
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(updateCount);
         });
     }
- 
+
     // 5. Cinematic Background Parallax
     const blobs = document.querySelectorAll('.blob');
     window.addEventListener('scroll', () => {
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             blob.style.transform = `translateY(${scrolled * speed}px)`;
         });
     });
- 
+
     window.addEventListener('mousemove', (e) => {
         const x = (e.clientX / window.innerWidth) - 0.5;
         const y = (e.clientY / window.innerHeight) - 0.5;
@@ -201,12 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
             blob.style.top = `${(index === 0 ? -100 : -100) + (y * factor)}px`;
         });
     });
- 
+
     // 6. Supabase Initialization
     const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://gtzzqljpvbzociinqegh.supabase.co';
     const supabaseKey = process.env.VITE_SUPABASE_KEY || 'sb_publishable_CoNCjuHnkSrBRVIn2Ip58g_69_4_q-G';
     const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
- 
+
     // 7. Waitlist Form Handler with STRICT Email Validation
     const waitlistForm = document.getElementById('waitlist-form');
     const formMessage = document.getElementById('form-message');
@@ -214,14 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // STRICT EMAIL VALIDATION REGEX
     // Requires: name@domain.extension (must have @ and dot with proper format)
     const strictEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
- 
+
     if (waitlistForm && supabase) {
         waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const emailInput = document.getElementById('email');
             const email = emailInput.value.trim().toLowerCase();
             const submitBtn = waitlistForm.querySelector('button');
- 
+
             // VALIDATION 1: Check strict email format
             if (!strictEmailRegex.test(email)) {
                 formMessage.innerText = 'Please enter a valid email (e.g., your@email.com)';
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 emailInput.focus();
                 return;
             }
- 
+
             // VALIDATION 2: Ensure domain extension is at least 2 chars
             const parts = email.split('.');
             if (parts[parts.length - 1].length < 2) {
@@ -238,14 +238,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 emailInput.focus();
                 return;
             }
- 
+
             // Feedback state
             submitBtn.disabled = true;
             const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = 'Joining...';
             formMessage.innerText = '';
             formMessage.className = 'form-message';
- 
+
             try {
                 // 1. Check for duplicates first
                 const { data: existing, error: checkError } = await supabase
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .select('email')
                     .eq('email', email)
                     .single();
- 
+
                 if (existing) {
                     formMessage.innerText = 'You are already on the list! We will be in touch soon.';
                     formMessage.classList.add('success');
@@ -261,18 +261,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerText = originalBtnText;
                     return;
                 }
- 
+
                 // 2. Insert new entry
                 const { error: insertError } = await supabase
                     .from('waitlist')
                     .insert([{ email }]);
- 
+
                 if (insertError) throw insertError;
                 
                 formMessage.innerText = 'Welcome to the inner circle. We will be in touch.';
                 formMessage.classList.add('success');
-                waitlistForm.reset();
-                submitBtn.innerText = 'Joined';
+                emailInput.value = '';
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Join the Waitlist →';
+                
+                // Clear message after 3 seconds
+                setTimeout(() => {
+                    formMessage.innerText = '';
+                    formMessage.className = 'form-message';
+                }, 3000);
             } catch (error) {
                 console.error('Waitlist Error:', error);
                 formMessage.innerText = 'Something went wrong. Please try again.';
