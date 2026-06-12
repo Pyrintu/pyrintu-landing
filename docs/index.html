@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pyrintu | Focus Recovery, Powered by AI</title>
+  <meta name="description" content="Behavioral intelligence that prevents focus drift automatically. Recover 4+ hours of deep work weekly.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pyrintu | Focus Recovery, Powered by AI">
+  <meta property="og:description" content="Behavioral intelligence that prevents focus drift automatically. Recover 4+ hours of deep work weekly.">
+  <meta property="og:image" content="https://pyrintu.software/images/og-image.png">
+  <meta property="og:url" content="https://pyrintu.software">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pyrintu | Focus Recovery, Powered by AI">
+  <meta name="twitter:image" content="https://pyrintu.software/images/og-image.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%2300D9FF'>P</text></svg>" type="image/svg+xml">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header sticky top-0 z-50 bg-gray-950 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-cyan-400">Pyrintu</a>
+      <nav class="hidden md:flex gap-8 text-sm">
+        <a href="#hero" class="hover:text-cyan-400 transition">Home</a>
+        <a href="#about" class="hover:text-cyan-400 transition">About</a>
+        <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+      </nav>
+      <button class="md:hidden text-white" id="hamburger">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 to-purple-950 relative overflow-hidden py-20">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        The average person loses focus
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">10 times every hour.</span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto">
+        We predict drift 30 seconds early and gently pull you back.
+        <br>
+        <span class="text-white font-semibold">No timers. No guilt. Just deep work.</span>
+      </p>
+      
+      <a href="#contact" class="inline-block bg-gradient-to-r from-cyan-400 to-purple-500 text-gray-950 font-bold px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition transform hover:scale-105">
+        Get Early Access →
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 bg-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Built on Machine Learning.</h2>
+          <p class="text-gray-300 text-lg mb-6">
+            We are Pyrintu. An AI/ML company from Hyderabad, India, founded in 2026. We combine cutting-edge machine learning with clean software engineering to build tools that make a real difference.
+          </p>
+          <p class="text-gray-400 mb-6">
+            Unlike timers and blockers, our behavioral intelligence engine learns your patterns and prevents distraction before it happens.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 bg-purple-900 text-cyan-400 text-sm rounded-full border border-purple-700">Artificial Intelligence</span>
+            <span class="px-3 py-1 bg-purple-900 text-cyan-400 text-sm rounded-full border border-purple-700">Machine Learning</span>
+            <span class="px-3 py-1 bg-purple-900 text-cyan-400 text-sm rounded-full border border-purple-700">Behavioral Science</span>
+            <span class="px-3 py-1 bg-purple-900 text-cyan-400 text-sm rounded-full border border-purple-700">Product Development</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-8 border border-gray-700">
+          <div class="aspect-square bg-gradient-to-br from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <span class="text-6xl">🧠</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-20 bg-gray-950">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4">Get Early Access</h2>
+      <p class="text-gray-400 text-center mb-8">Join our waitlist. We'll be in touch with exclusive early access.</p>
+      
+      <form id="contact-form" class="space-y-4">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+        >
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-cyan-400 to-purple-500 text-gray-950 font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition"
+        >
+          Get Early Access
+        </button>
+      </form>
+      <div id="form-message" class="mt-4 text-center text-sm"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-950 border-t border-gray-800 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <p class="font-bold text-white mb-2">Pyrintu</p>
+          <p class="text-gray-400">Intelligence, Engineered.</p>
+        </div>
+        <nav class="text-gray-400 space-y-2">
+          <div><a href="#hero" class="hover:text-cyan-400 transition">Home</a></div>
+          <div><a href="#about" class="hover:text-cyan-400 transition">About</a></div>
+          <div><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></div>
+        </nav>
+        <div class="text-gray-400 space-y-2">
+          <div><a href="https://twitter.com/pyrintu" target="_blank" class="hover:text-cyan-400 transition">Twitter</a></div>
+          <div><a href="https://linkedin.com/company/pyrintu" target="_blank" class="hover:text-cyan-400 transition">LinkedIn</a></div>
+          <div><a href="https://github.com/pyrintu" target="_blank" class="hover:text-cyan-400 transition">GitHub</a></div>
+        </nav>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+        <p>&copy; 2026 Pyrintu. Intelligence, Engineered.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Pyrintu",
+    "url": "https://pyrintu.software",
+    "description": "Behavioral intelligence that prevents focus drift automatically.",
+    "sameAs": ["https://twitter.com/pyrintu", "https://linkedin.com/company/pyrintu", "https://github.com/pyrintu"]
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

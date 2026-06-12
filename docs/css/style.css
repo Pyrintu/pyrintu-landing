@@ -1,0 +1,186 @@
+/* =====================
+   PYRINTU CUSTOM CSS
+   ===================== */
+
+:root {
+  --color-primary: #00D9FF;
+  --color-secondary: #8B2CF6;
+  --color-accent: #39FF14;
+  --color-dark: #0F0F1E;
+  --color-gray: #6B7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #E5E7EB;
+  background: #0F0F1E;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+/* =====================
+   ANIMATIONS
+   ===================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  body {
+    font-size: 0.95rem;
+  }
+}
+
+/* =====================
+   ACCESSIBILITY
+   ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* =====================
+   UTILITY CLASSES
+   ===================== */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-glow {
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+}
+
+/* =====================
+   FORM STYLES
+   ===================== */
+
+input[type="email"],
+textarea {
+  transition: all 0.3s ease;
+}
+
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+}
+
+/* Form messages */
+.form-message {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.form-message.success {
+  color: var(--color-accent);
+}
+
+.form-message.error {
+  color: #FF6B6B;
+}
+
+.form-message.loading {
+  color: var(--color-primary);
+}
+
+/* =====================
+   BUTTON STATES
+   ===================== */
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =====================
+   MOBILE MENU
+   ===================== */
+
+nav.mobile-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #1F1F3D;
+  border-bottom: 1px solid #2D2D5F;
+  padding: 1rem;
+  gap: 1rem;
+}
